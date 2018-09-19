@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
-import com.example.ernestolanchares.testgame.utils.Utils;
+import com.example.ernestolanchares.testgame.utils.RectUtils;
 
 public class Animation {
 
@@ -47,7 +47,7 @@ public class Animation {
     }
 
     public void draw(Canvas canvas, Rect rect) {
-        Utils.scalateRect(rect, frames[frameIndex]);
+        RectUtils.scalateRect(rect, frames[frameIndex]);
         canvas.drawBitmap(frames[frameIndex], null, rect, new Paint());
     }
 

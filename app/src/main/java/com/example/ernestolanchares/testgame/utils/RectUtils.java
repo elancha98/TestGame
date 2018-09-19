@@ -3,7 +3,7 @@ package com.example.ernestolanchares.testgame.utils;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 
-public class Utils {
+public class RectUtils {
 
     public static void scalateRect(Rect rect, Bitmap bm) {
         float whRatio = ((float) bm.getWidth()) / bm.getHeight();
@@ -11,6 +11,11 @@ public class Utils {
             rect.right = (int) (rect.left + rect.height() * whRatio);
         else
             rect.top = (int) (rect.bottom - rect.width() * whRatio);
+    }
+
+    public static void scaleToWidth(Rect rect, int desiredWidth) {
+        float hwRatio = ((float) rect.height()) / rect.width();
+        rect.set(rect.left, rect.top, rect.left + desiredWidth, (int) (rect.top + hwRatio*desiredWidth));
     }
 
     public static void centerRect(Rect rect) {
