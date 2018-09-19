@@ -1,20 +1,18 @@
 package com.example.ernestolanchares.testgame;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.support.v7.content.res.AppCompatResources;
 import android.view.MotionEvent;
-
-import com.example.ernestolanchares.testgame.utils.Constants;
-import com.example.ernestolanchares.testgame.utils.Utils;
 
 public class IntroState extends State {
 
-    Bitmap img;
-    private Rect rect;
+    private static final long A_TIME = 3000;
+    private static final long APPEAR_TIME = 1000;
+
+    private Drawable punts;
+    private Drawable letter;
 
     public IntroState(StateManager manager) {
         super(manager);
@@ -26,7 +24,7 @@ public class IntroState extends State {
     public void draw(Canvas canvas) {
         canvas.drawColor(Color.rgb(0xf2, 0xf2, 0xf2));
 
-        canvas.drawBitmap(img, null, rect, new Paint());
+
     }
 
     @Override
@@ -40,15 +38,12 @@ public class IntroState extends State {
 
     @Override
     public void reset() {
-        img = BitmapFactory.decodeResource(manager.getContext().getResources(), R.drawable.icono);
-
-        rect = new Rect(0, 0, Constants.SCREEN_WIDTH/2, Constants.SCREEN_HEIGHT/2);
-        Utils.scalateRect(rect, img);
-        Utils.centerRect(rect);
+        letter = AppCompatResources.getDrawable(manager.getContext(), R.drawable.android);
     }
 
     @Override
     public void destroy() {
-        img = null;
+        letter = null;
+        punts = null;
     }
 }

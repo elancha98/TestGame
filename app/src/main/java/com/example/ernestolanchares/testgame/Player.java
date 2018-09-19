@@ -9,11 +9,10 @@ import android.view.MotionEvent;
 
 public class Player {
     private int id;
-    private Card[] hand;
+    private Card[] hand = new Card[12];
 
     public Player(int id) {
         this.id = id;
-        hand = new Card[12];
     }
 
     public Card[] getHand() {
