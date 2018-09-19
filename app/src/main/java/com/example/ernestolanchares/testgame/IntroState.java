@@ -24,7 +24,7 @@ public class IntroState extends State {
 
     @Override
     public void draw(Canvas canvas) {
-        canvas.drawColor(Color.WHITE);
+        canvas.drawColor(Color.rgb(0xf2, 0xf2, 0xf2));
 
         canvas.drawBitmap(img, null, rect, new Paint());
     }
@@ -40,7 +40,7 @@ public class IntroState extends State {
 
     @Override
     public void reset() {
-        img = BitmapFactory.decodeResource(manager.getContext().getResources(), R.drawable.icono_contorno);
+        img = BitmapFactory.decodeResource(manager.getContext().getResources(), R.drawable.icono);
 
         rect = new Rect(0, 0, Constants.SCREEN_WIDTH/2, Constants.SCREEN_HEIGHT/2);
         Utils.scalateRect(rect, img);
